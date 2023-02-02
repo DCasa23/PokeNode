@@ -1,7 +1,7 @@
 <%- include("template/cabecera.ejs", {cabecera:"Panel"}) %>
     <div class="container">
         <h1>CRUD Mongo</h1>
-        <a class="btn btn-success btn-block my-4" href="/pokemon/crearpokemon">Crear un nuevo pokemon</a>
+        <a class="btn btn-success btn-block my-4" href="/entrenador/crearentrenador">Crear un nuevo entrenador</a>
 
         <table class="table">
             <thead class="thead-dark">
@@ -9,30 +9,34 @@
                     <th scope="col">#</th>
                     <th scope="col">Nombre</th>
                     <th scope="col">Tipo</th>
-                    <th scope="col">Descripción</th>
-                    <th scope="col">Acción</th>
+                    <th scope="col">Nivel</th>
+                    <th scope="col">Amistad</th>
                 </tr>
             </thead>
             <tbody>
-                <% if (arrayPokemon.length> 0) { %>
+                <% if (arrayEntrenador.length> 0) { %>
                     <!--Haremos el foreach para recorrer el array-->
-                    <% arrayPokemon.forEach(pokemon=> { %>
+                    <% arrayEntrenador.forEach(entrenador=> { %>
                         <tr>
                             <th scope="row">
-                                <%= pokemon.id %>
+                                <%= entrenador.id %>
                             </th>
                             <td>
-                                <%= pokemon.nombre %>
+                                <%= entrenador.nombre %>
                             </td>
                             <td>
-                                <%= pokemon.tipo %>
+                                <%= entrenador.tipo %>
                             </td>
                             <td>
-                                <%= pokemon.descripcion %>
+                                <%= entrenador.nivel %>
+                            </td>
+                            
+                            <td>
+                                <%= entrenador.amistad %>
                             </td>
 
                             <td>
-                                <a class="btn btn-warning btn-sm" href="/pokemon/<%= pokemon.id %>">Editar/Eliminar</a>
+                                <a class="btn btn-warning btn-sm" href="/entrenador/<%= entrenador.id %>">Editar/Eliminar</a>
                             </td>
                         </tr>
                         <% }) %>

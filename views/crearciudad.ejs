@@ -1,0 +1,16 @@
+
+<%- include("template/cabecera", {cabecera: 'Nuevo Gimnasio' }) %>
+<div class="container">
+    <h1>Crear nuevo Gimnasio</h1>
+    <form action="/gimnasio" class="my-2" method="POST">
+        <input type="text" placeholder="Tipo Pokemon" class="form-control my-2" name="tipo">
+        <input type="text" placeholder="Nivel" class="form-control my-2" name="nivel">
+        <input type="text" placeholder="Numero Entrenadores" class="form-control my-2" name="numeroentrenadores">
+        <input type="text" placeholder="Pokemon Famoso" class="form-control my-2" name="pokemonfamoso">
+        <button type="submit" class="btn btn-dark btn-block">
+            Agregar
+        </button>
+    </form>
+</div>
+<%- include("template/footer") %>
+

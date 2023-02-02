@@ -1,38 +1,41 @@
 <%- include("template/cabecera.ejs", {cabecera:"Panel"}) %>
     <div class="container">
         <h1>CRUD Mongo</h1>
-        <a class="btn btn-success btn-block my-4" href="/pokemon/crearpokemon">Crear un nuevo pokemon</a>
+        <a class="btn btn-success btn-block my-4" href="/gimnasio/creargimnasio">Crear un nuevo gimnasio</a>
 
         <table class="table">
             <thead class="thead-dark">
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Nombre</th>
                     <th scope="col">Tipo</th>
-                    <th scope="col">Descripción</th>
-                    <th scope="col">Acción</th>
+                    <th scope="col">Nivel</th>
+                    <th scope="col">Numero de Entrenadores</th>
+                    <th scope="col">Pokemon Famoso</th>
                 </tr>
             </thead>
             <tbody>
-                <% if (arrayPokemon.length> 0) { %>
+                <% if (arrayGimnasio.length> 0) { %>
                     <!--Haremos el foreach para recorrer el array-->
-                    <% arrayPokemon.forEach(pokemon=> { %>
+                    <% arrayGimnasio.forEach(gimnasio=> { %>
                         <tr>
                             <th scope="row">
-                                <%= pokemon.id %>
+                                <%= gimnasio.id %>
                             </th>
                             <td>
-                                <%= pokemon.nombre %>
+                                <%= gimnasio.tipo %>
                             </td>
                             <td>
-                                <%= pokemon.tipo %>
+                                <%= gimnasio.nivel %>
                             </td>
                             <td>
-                                <%= pokemon.descripcion %>
+                                <%= gimnasio.numeroentrenadores %>
+                            </td>
+                            <td>
+                                <%= gimnasio.pokemonfamoso %>
                             </td>
 
                             <td>
-                                <a class="btn btn-warning btn-sm" href="/pokemon/<%= pokemon.id %>">Editar/Eliminar</a>
+                                <a class="btn btn-warning btn-sm" href="/gimnasio/<%= gimnasio.id %>">Editar/Eliminar</a>
                             </td>
                         </tr>
                         <% }) %>

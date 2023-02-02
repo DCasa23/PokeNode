@@ -7,11 +7,11 @@ const router = express.Router();
 // Importante que ya no usaremos el app.get(...), ahora
 //vamos a utilizar las rutas, por lo que deberemos poner:
 router.get('/', (req, res) => {
-    res.render("index", { titulo: "mi titulo dinámico" })
+    res.render("index", { titulo: "Aquí tenemos para elegir las diferentes opciones" })
 })
 
 router.get('/contacto', (req, res) => {
-    res.render("contacto", { tituloContacto: "Estamos en contacto de manera dinámica!!" })
+    res.render("contacto", { titulo: "Estamos en contacto de manera dinámica!!" })
 })
 // Por último, vamos a exportarlo:
 module.exports = router;

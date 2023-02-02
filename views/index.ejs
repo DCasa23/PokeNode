@@ -1,4 +1,12 @@
-<%- include("template/cabecera.ejs",{cabecera:"General"})%>
+<%- include("template/cabecera",{cabecera:"General"})%>
     <h2><%=titulo%></h2>
+    <div class="container">
+        <h1>CRUD Mongo</h1>
+        <a class="btn btn-success btn-block my-4" href="/pokemon/">Crear un nuevo Pokemon</a>
+        <a class="btn btn-primary btn-block my-4" href="/entrenador">Crear un nuevo Entrenador</a>
+        <a class="btn btn-warning btn-block my-4" href="/gimnasio">Crear un nuevo Gimnasio</a>
+        <a class="btn btn-danger btn-block my-4" href="/ciudad">Crear un nuevo Ciudad</a>
+
+    </div>
 
 <%- include("template/footer.ejs")%>

@@ -38,6 +38,9 @@ app.use(express.static(__dirname + '/public'));
 //Llamadas a las rutas:
 app.use('/', require('./router/rutas.js'));
 app.use('/pokemon', require('./router/pokemon.js'));
+app.use('/gimnasio', require('./router/gimnasio.js'));
+app.use('/entrenador', require('./router/entrenador.js'));
+
 app.use((req, res) => {
 
   res.status(404).render("404",
