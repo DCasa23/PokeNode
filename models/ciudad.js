@@ -1,13 +1,14 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const pokemonSchema = new Schema({
+const ciudadSchema = new Schema({
     nombre: String,
-    tipo: String,
-    descripcion: String
+    tienegimnasio: String,
+    numerocasas: Number,
+    region: String
 })
 
 //Creamos el modelo
-const Pokemon = mongoose.model('database_pokemon', pokemonSchema, "pokemon");
+const Ciudad = mongoose.model('database_ciudad', ciudadSchema, "ciudad");
 
-module.exports = Pokemon;
+module.exports = Ciudad;

@@ -1,47 +1,48 @@
 <%- include("template/cabecera.ejs", {cabecera:"Panel"}) %>
     <div class="container">
         <h1>CRUD Mongo</h1>
-        <a class="btn btn-success btn-block my-4" href="/gimnasio/creargimnasio">Crear un nuevo gimnasio</a>
+        <a class="btn btn-success btn-block my-4" href="/ciudad/crearciudad">Crear una nueva ciudad</a>
 
         <table class="table">
             <thead class="thead-dark">
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Tipo</th>
-                    <th scope="col">Nivel</th>
-                    <th scope="col">Numero de Entrenadores</th>
-                    <th scope="col">Pokemon Famoso</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Tiene Gimnasio</th>
+                    <th scope="col">Numero de Casas</th>
+                    <th scope="col">Región</th>
                 </tr>
             </thead>
             <tbody>
-                <% if (arrayGimnasio.length> 0) { %>
+                <% if (arrayCiudad.length> 0) { %>
                     <!--Haremos el foreach para recorrer el array-->
-                    <% arrayGimnasio.forEach(gimnasio=> { %>
+                    <% arrayCiudad.forEach(ciudad=> { %>
                         <tr>
                             <th scope="row">
-                                <%= gimnasio.id %>
+                                <%= ciudad.id %>
                             </th>
                             <td>
-                                <%= gimnasio.tipo %>
+                                <%= ciudad.nombre %>
                             </td>
                             <td>
-                                <%= gimnasio.nivel %>
+                                <%= ciudad.tienegimnasio %>
                             </td>
                             <td>
-                                <%= gimnasio.numeroentrenadores %>
+                                <%= ciudad.numerocasas %>
                             </td>
                             <td>
-                                <%= gimnasio.pokemonfamoso %>
+                                <%= ciudad.region %>
                             </td>
 
                             <td>
-                                <a class="btn btn-warning btn-sm" href="/gimnasio/<%= gimnasio.id %>">Editar/Eliminar</a>
+                                <a class="btn btn-warning btn-sm" href="/ciudad/<%= ciudad.id %>">Editar/Eliminar</a>
                             </td>
                         </tr>
                         <% }) %>
                             <% } %>
             </tbody>
         </table>
+        <a class="btn btn-dark btn-block my-4" href="/">Volver</a>
     </div>
 
 

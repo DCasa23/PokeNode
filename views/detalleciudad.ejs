@@ -1,31 +1,31 @@
-<%- include("template/cabecera", {cabecera: 'Detalles del Gimnasio' }) %>
+<%- include("template/cabecera", {cabecera: 'Detalles de la Ciudad' }) %>
 <div class="container">
     <h1>Detalles del Pokémon</h1>
     <% if (error) { %>
         <%= mensaje %> 
         <a 
-            href="/gimnasio"
+            href="/ciudad"
             class="btn btn-dark btn-block my-2"
         >
             Volver
         </a>
 <% } %>
 <% if (!error) { %>
-<form id="editar" data-id="<%= gimnasio.id %>">
-    <input type="text" value="<%= gimnasio.tipo %>" class="form-control my-2" name="tipo"
-        id="tipoInput">
-    <input type="text" value="<%= gimnasio.nivel %>" class="form-control my-2" name="nivel"
-        id="nivelInput">
-    <input type="text" value="<%= gimnasio.numeroentrenadores %>" class="form-control my-2" name="numeroentrenadores"
-        id="numeroentrenadoresInput">
-    <input type="text" value="<%= gimnasio.pokemonfamoso %>" class="form-control my-2"
-        name="pokemonfamoso" id="pokemonfamosoInput">
+<form id="editar" data-id="<%= ciudad.id %>">
+    <input type="text" value="<%= ciudad.nombre %>" class="form-control my-2" name="nombre"
+        id="nombreInput">
+    <input type="text" value="<%= ciudad.tienegimnasio %>" class="form-control my-2" name="tienegimnasio"
+        id="tienegimnasioInput">
+    <input type="text" value="<%= ciudad.numerocasas %>" class="form-control my-2" name="numerocasas"
+        id="numerocasasInput">
+    <input type="text" value="<%= ciudad.region %>" class="form-control my-2"
+        name="region" id="regionInput">
     <button class="btn btn-warning btn-sm" type="submit">
         Editar
     </button>
 </form>
 <hr>
-<button class="btn btn-danger btn-sm" data-id="<%= gimnasio.id %>">
+<button class="btn btn-danger btn-sm" data-id="<%= ciudad.id %>">
     Eliminar
 </button>
 <% } %>
@@ -39,13 +39,13 @@ btnEliminar.addEventListener('click', async () => {
     console.log(btnEliminar.dataset.id)
     try {
         // https://developer.mozilla.org/es/docs/Web/API/HTMLElement/dataset
-        const data = await fetch(`/gimnasio/${btnEliminar.dataset.id}`, {
+        const data = await fetch(`/ciudad/${btnEliminar.dataset.id}`, {
             method: 'delete'
         })
         const res = await data.json()
         console.log(res)
         if (res.estado) {
-            window.location.href = '/gimnasio'
+            window.location.href = '/ciudad'
         } else {
             console.log(res)
         }
@@ -58,21 +58,21 @@ const formEditar = document.querySelector('#editar');
             formEditar.addEventListener('submit', async (e) => {
                 e.preventDefault()
                 
-                const tipo = formEditar.elements['tipo'].value
-                const nivel = formEditar.elements['nivel'].value
-                const numeroentrenadores = formEditar.elements['numeroentrenadores'].value
-                const pokemonfamoso = formEditar.elements['pokemonfamoso'].value
+                const nombre = formEditar.elements['nombre'].value
+                const tienegimnasio = formEditar.elements['tienegimnasio'].value
+                const numerocasas = formEditar.elements['numerocasas'].value
+                const region = formEditar.elements['region'].value
                 const id = formEditar.dataset.id
-                const data = await fetch(`/gimnasio/${id}`, {
+                const data = await fetch(`/ciudad/${id}`, {
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify({ tipo,nivel,numeroentrenadores,pokemonfamoso })
+                    body: JSON.stringify({ nombre,tienegimnasio,numerocasas,region })
                 })
                 const res = await data.json()
                 if (res.estado) {
-                    window.location.href = '/gimnasio'
+                    window.location.href = '/ciudad'
                 } else {
                     console.log(res)
                 }

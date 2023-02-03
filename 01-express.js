@@ -40,6 +40,7 @@ app.use('/', require('./router/rutas.js'));
 app.use('/pokemon', require('./router/pokemon.js'));
 app.use('/gimnasio', require('./router/gimnasio.js'));
 app.use('/entrenador', require('./router/entrenador.js'));
+app.use('/ciudad', require('./router/ciudad.js'));
 
 app.use((req, res) => {
 
